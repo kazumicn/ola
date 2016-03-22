@@ -24,3 +24,9 @@ sudo nginx service stop
 
 # Generate a strong Diffie-Hellman (2048-bit) group
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+# Config nginx to use certificate (see nginx-config.conf)
+sudo vim /etc/nginx/sites-available/default
+
+# Reload nginx
+sudo service nginx reload
