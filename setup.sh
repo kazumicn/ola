@@ -36,5 +36,6 @@ sudo service nginx start
 sudo vim /etc/iptables.test.rules
 sudo iptables-restore < /etc/iptables.test.rules
 sudo iptables -L
+sudo apt-get install iptables-persistent -y
 
 # TODO auto renew
