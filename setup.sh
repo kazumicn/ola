@@ -32,10 +32,20 @@ sudo service nginx start
 
 # Test SSL config with https://www.ssllabs.com/ssltest/
 
-# Configure iptables (see iptables.rules)
+# Configure iptables (see iptables.rules) & persist rules
 sudo vim /etc/iptables.test.rules
 sudo iptables-restore < /etc/iptables.test.rules
 sudo iptables -L
 sudo apt-get install iptables-persistent -y
 
-# TODO auto renew
+# Configure SSL certificate renew with letsencrypt & cron
+# /opt/letsencrypt/letsencrypt-auto renew
+sudo crontab -e
+
+# Add to crontab (to auto renew certs every monday)
+# 30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
+# 35 2 * * 1 /etc/init.d/nginx reload
+
+# Sources
+# - https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04
+# - https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-with-ssl-as-a-reverse-proxy-for-jenkins
