@@ -25,7 +25,8 @@ sudo /opt/letsencrypt-auto certonly --rsa-key-size 4096
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 # Config nginx to use certificate (see nginx-config.conf)
-sudo vim /etc/nginx/sites-available/default
+sudo vim /etc/nginx/sites-available/secure.example.com
+sudo ln -s /etc/nginx/sites-available/secure.example.com /etc/nginx/sites-enabled/secure.example.com
 
 # Restart nginx
 sudo service nginx start
