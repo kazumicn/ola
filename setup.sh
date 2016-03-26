@@ -33,11 +33,17 @@ sudo service nginx start
 
 # Test SSL config with https://www.ssllabs.com/ssltest/
 
-# Configure iptables (see iptables.rules) & persist rules
-sudo vim /etc/iptables.test.rules
-sudo iptables-restore < /etc/iptables.test.rules
-sudo iptables -L
-sudo apt-get install iptables-persistent -y
+# Install firewall (ufw)
+sudo apt-get install ufw -y
+
+# Open SSH, HTTP & HTTPS ports
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+
+# Enable ufw
+sudo ufw enable
+sudo ufw status
 
 # Configure SSL certificate renew with letsencrypt & cron
 # /opt/letsencrypt/letsencrypt-auto renew
