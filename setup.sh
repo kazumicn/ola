@@ -13,13 +13,13 @@ sudo apt-get install git -y
 sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 
 # Install letsencrypt dependencies
-sudo /opt/letsencrypt-auto --help all
+sudo /opt/letsencrypt/letsencrypt-auto --help all
 
 # Stop nginx (port 80 needed by letsencrypt)
 sudo nginx service stop
 
 # Generate certificate
-sudo /opt/letsencrypt-auto certonly --rsa-key-size 4096
+sudo /opt/letsencrypt/letsencrypt-auto certonly --rsa-key-size 4096
 
 # Generate a strong Diffie-Hellman (2048-bit) group
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
