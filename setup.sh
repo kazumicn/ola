@@ -16,7 +16,7 @@ sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 sudo /opt/letsencrypt/letsencrypt-auto --help all
 
 # Stop nginx (port 80 needed by letsencrypt)
-sudo nginx service stop
+sudo service nginx stop
 
 # Generate certificate
 sudo /opt/letsencrypt/letsencrypt-auto certonly --rsa-key-size 4096
